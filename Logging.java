@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 /** .
-* This program says how many of a certain long can fit on a truck.
+* This program says how many of a certain log can fit on a truck.
 *
 * @author  Zak Goneau
 * @version 1.0
@@ -31,13 +31,14 @@ public final class Logging {
 
         // Declare constants
         final float MAX_WEIGHT = 1100f;
-        final float QUARTER_LENGTH = 4f;
-        final float HALF_LENGTH = 2f;
+        final float QUARTER_LENGTH = 0.25f;
+        final float HALF_LENGTH = 0.5f;
         final float FULL_LENGTH = 1f;
         final float WEIGHT_PER_METER = 20f;
 
         // Welcome and get user input
-        System.out.println("This program says how many of a certain long can fit on a truck");
+        System.out.print("This program says how many of a certain");
+        System.out.println(" log can fit on a truck");
         System.out.println("Enter a log size: 0.25, 0.5, 1 (m): ");
 
         // Using scanner to get user input
@@ -47,27 +48,32 @@ public final class Logging {
         // Try to convert users input
         try {
 
-            // Convert string to float
-            final float lengthFloat = Float.parseFloat(lengthString);
+            // Convert string to float // final float ...
+            float lengthFloat = Float.parseFloat(lengthString);
 
             // Check if input is one of the lengths
-            if (lengthFloat == QUARTER_LENGTH || lengthFloat == HALF_LENGTH || lengthFloat == FULL_LENGTH) {
+            if (lengthFloat == QUARTER_LENGTH || lengthFloat == HALF_LENGTH
+                || lengthFloat == FULL_LENGTH) {
 
                 // Check if length is 0.25
                 if (lengthFloat == QUARTER_LENGTH) {
                     // Calculate total logs for 0.25m
-                    final double totalLogs = MAX_WEIGHT / (WEIGHT_PER_METER / QUARTER_LENGTH);
+                    final double totalLogs = MAX_WEIGHT
+                        / (WEIGHT_PER_METER * QUARTER_LENGTH);
 
                     // Print result to user
-                    System.out.println("The total amount of 0.25m logs is: " + totalLogs);
+                    System.out.print("The total amount of 0.25m logs is: ");
+                    System.out.println(totalLogs);
 
                     // Check if length is 0.5m
                 } else if (lengthFloat == HALF_LENGTH) {
                     // Calculate total logs for 0.5m
-                    final double totalLogs = MAX_WEIGHT / (WEIGHT_PER_METER / HALF_LENGTH);
+                    final double totalLogs = MAX_WEIGHT
+                        / (WEIGHT_PER_METER * HALF_LENGTH);
 
                     // Print result to user
-                    System.out.println("The total amount of 0.5m logs is: " + totalLogs);
+                    System.out.print("The total amount of 0.5m logs is: ");
+                    System.out.println(totalLogs);
 
                     // Otherwise length is 1m
                 } else {
@@ -75,7 +81,8 @@ public final class Logging {
                     final double totalLogs = MAX_WEIGHT / WEIGHT_PER_METER;
 
                     // Print result to user
-                    System.out.println("The total amount of 1m logs is: " + totalLogs);
+                    System.out.print("The total amount of 1m logs is: ");
+                    System.out.println(totalLogs);
                 }
 
             } else {
